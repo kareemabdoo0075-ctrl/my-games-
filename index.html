@@ -23,10 +23,6 @@
                     <img src="https://img.gamedistribution.com/rvvAS308-512x512.jpeg" alt="قتال العصي">
                     <h3>قتال العصي (Stickman)</h3>
                 </a>
-                <a href="play.html?url=https://html5.gamedistribution.com/f0426189db894819a16a8d80c058c49e/&title=Super+Brawl" class="game-card">
-                    <img src="https://img.gamedistribution.com/f0426189db894819a16a8d80c058c49e-512x512.jpeg" alt="سوبر قتال">
-                    <h3>سوبر قتال الشوارع</h3>
-                </a>
             </div>
         </section>
 
@@ -50,11 +46,7 @@
             
             for (let i = 0; i < cards.length; i++) {
                 let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
-                if (title.includes(input)) {
-                    cards[i].style.display = "block";
-                } else {
-                    cards[i].style.display = "none";
-                }
+                cards[i].style.display = title.includes(input) ? "block" : "none";
             }
         }
     </script>
