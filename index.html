@@ -10,7 +10,7 @@
 
     <header>
         <div class="logo">🎮 Games Zone</div>
-        <input type="text" placeholder="ابحث عن لعبتك المفضلة...">
+        <input type="text" id="searchInput" onkeyup="searchGames()" placeholder="ابحث عن لعبتك المفضلة...">
     </header>
 
     <main class="container">
@@ -19,13 +19,13 @@
         <section class="category-section action-section">
             <h2>⚔️ ألعاب القتال والأكشن</h2>
             <div class="games-grid">
-                <a href="play.html?game=action1" class="game-card">
-                    <img src="https://via.placeholder.com/300x180" alt="لعبة قتال 1">
-                    <h3>معركة الأبطال</h3>
+                <a href="play.html?url=https://html5.gamedistribution.com/rvvAS308/&title=Stickman+Combat" class="game-card">
+                    <img src="https://img.gamedistribution.com/rvvAS308-512x512.jpeg" alt="قتال العصي">
+                    <h3>قتال العصي (Stickman)</h3>
                 </a>
-                <a href="play.html?game=action2" class="game-card">
-                    <img src="https://via.placeholder.com/300x180" alt="لعبة قتال 2">
-                    <h3>قتال الشوارع</h3>
+                <a href="play.html?url=https://html5.gamedistribution.com/f0426189db894819a16a8d80c058c49e/&title=Super+Brawl" class="game-card">
+                    <img src="https://img.gamedistribution.com/f0426189db894819a16a8d80c058c49e-512x512.jpeg" alt="سوبر قتال">
+                    <h3>سوبر قتال الشوارع</h3>
                 </a>
             </div>
         </section>
@@ -34,14 +34,29 @@
         <section class="category-section racing-section">
             <h2>🏎️ ألعاب السيارات والسرعة</h2>
             <div class="games-grid">
-                <a href="play.html?game=racing1" class="game-card">
-                    <img src="https://via.placeholder.com/300x180" alt="لعبة سباق 1">
-                    <h3>سباق المحترفين</h3>
+                <a href="play.html?url=https://html5.gamedistribution.com/62497fb26a114f04a601e3b6107383da/&title=Street+Racer" class="game-card">
+                    <img src="https://img.gamedistribution.com/62497fb26a114f04a601e3b6107383da-512x512.jpeg" alt="سباق شوارع">
+                    <h3>سباق شوارع المحترفين</h3>
                 </a>
             </div>
         </section>
 
     </main>
 
+    <script>
+        function searchGames() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('game-card');
+            
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (title.includes(input)) {
+                    cards[i].style.display = "block";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </body>
 </html>
