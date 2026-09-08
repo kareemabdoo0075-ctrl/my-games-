@@ -1,104 +1,62 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games Zone - عالم الألعاب</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="main-theme">
 
-/* الخلفية الرئيسية الشفافة مع خلفية قتال */
-body {
-    min-height: 100vh;
-    color: #fff;
-    background: linear-gradient(rgba(15, 15, 26, 0.85), rgba(15, 15, 26, 0.85)), 
-                url('https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1000') no-repeat center center fixed;
-    background-size: cover;
-}
+    <header>
+        <div class="logo">🎮 Games Zone</div>
+        <input type="text" id="searchInput" onkeyup="searchGames()" placeholder="ابحث عن لعبتك المفضلة...">
+    </header>
 
-/* الهيدر بتأثير Glassmorphism */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
+    <main class="container">
+        
+        <!-- قسم الألعاب القتالية والأكشن -->
+        <section class="category-section action-section">
+            <h2>⚔️ ألعاب القتال والأكشن</h2>
+            <div class="games-grid">
+                <a href="play.html?url=https://html5.gamedistribution.com/rvvAS308/&title=Stickman+Combat" class="game-card">
+                    <img src="https://img.gamedistribution.com/rvvAS308-512x512.jpeg" alt="قتال العصي">
+                    <h3>قتال العصي (Stickman)</h3>
+                </a>
+                <a href="play.html?url=https://html5.gamedistribution.com/f0426189db894819a16a8d80c058c49e/&title=Super+Brawl" class="game-card">
+                    <img src="https://img.gamedistribution.com/f0426189db894819a16a8d80c058c49e-512x512.jpeg" alt="سوبر قتال">
+                    <h3>سوبر قتال الشوارع</h3>
+                </a>
+            </div>
+        </section>
 
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-    color: #00f2fe;
-}
+        <!-- قسم ألعاب السيارات والسرعة -->
+        <section class="category-section racing-section">
+            <h2>🏎️ ألعاب السيارات والسرعة</h2>
+            <div class="games-grid">
+                <a href="play.html?url=https://html5.gamedistribution.com/62497fb26a114f04a601e3b6107383da/&title=Street+Racer" class="game-card">
+                    <img src="https://img.gamedistribution.com/62497fb26a114f04a601e3b6107383da-512x512.jpeg" alt="سباق شوارع">
+                    <h3>سباق شوارع المحترفين</h3>
+                </a>
+            </div>
+        </section>
 
-header input {
-    padding: 8px 15px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(0, 0, 0, 0.4);
-    color: #fff;
-    outline: none;
-}
+    </main>
 
-/* حاوي المحتوى */
-.container {
-    padding: 30px 5%;
-}
-
-.category-section {
-    margin-bottom: 40px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 15px;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* خلفية مخصصة لقسم ألعاب القتال عند تحريك الماوس أو التركيز */
-.action-section h2 {
-    color: #ff4757;
-    margin-bottom: 15px;
-}
-
-.racing-section h2 {
-    color: #eccc68;
-    margin-bottom: 15px;
-}
-
-/* الشبكة لتنسيق كروت الألعاب */
-.games-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.game-card {
-    text-decoration: none;
-    color: #fff;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    border: 1px solid transparent;
-}
-
-.game-card:hover {
-    transform: translateY(-5px);
-    border-color: #00f2fe;
-    box-shadow: 0 8px 20px rgba(0, 242, 254, 0.2);
-}
-
-.game-card img {
-    width: 100%;
-    height: 120px;
-    object-fit: cover;
-}
-
-.game-card h3 {
-    padding: 10px;
-    font-size: 16px;
-    text-align: center;
-}
+    <script>
+        function searchGames() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('game-card');
+            
+            for (let i = 0; i < cards.length; i++) {
+                let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (title.includes(input)) {
+                    cards[i].style.display = "block";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
