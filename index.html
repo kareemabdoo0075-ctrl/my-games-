@@ -3,62 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ألعابي - Games Zone</title>
+    <title>Games Zone - عالم الألعاب</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="main-theme">
 
     <header>
-        <div class="logo">🎮 ألعابي</div>
-        <input type="text" placeholder="ابحث عن لعبة..." class="search-bar">
+        <div class="logo">🎮 Games Zone</div>
+        <input type="text" placeholder="ابحث عن لعبتك المفضلة...">
     </header>
 
     <main class="container">
-        <h2>🔥 ألعاب سيارات وسرعة</h2>
-        <div class="games-grid">
-            <a href="play.html?game=car1" class="game-card">
-                <img src="https://picsum.photos/200/150?random=1" alt="سباق السيارات">
-                <div class="game-title">سباق السيارات الخارقة</div>
-            </a>
-            <a href="play.html?game=car2" class="game-card">
-                <img src="https://picsum.photos/200/150?random=2" alt="تحدي التفحيط">
-                <div class="game-title">تحدي التفحيط</div>
-            </a>
-            <a href="play.html?game=car3" class="game-card">
-                <img src="https://picsum.photos/200/150?random=3" alt="الشاحنات العملاقة">
-                <div class="game-title">الشاحنات العملاقة</div>
-            </a>
-        </div>
+        
+        <!-- قسم الألعاب القتالية والأكشن -->
+        <section class="category-section action-section">
+            <h2>⚔️ ألعاب القتال والأكشن</h2>
+            <div class="games-grid">
+                <a href="play.html?game=action1" class="game-card">
+                    <img src="https://via.placeholder.com/300x180" alt="لعبة قتال 1">
+                    <h3>معركة الأبطال</h3>
+                </a>
+                <a href="play.html?game=action2" class="game-card">
+                    <img src="https://via.placeholder.com/300x180" alt="لعبة قتال 2">
+                    <h3>قتال الشوارع</h3>
+                </a>
+            </div>
+        </section>
 
-        <h2 style="margin-top: 25px;">💥 ألعاب أكشن ومغامرات</h2>
-        <div class="games-grid">
-            <a href="play.html?game=action1" class="game-card">
-                <img src="https://picsum.photos/200/150?random=4" alt="قتال الشوارع">
-                <div class="game-title">قتال الشوارع</div>
-            </a>
-            <a href="play.html?game=action2" class="game-card">
-                <img src="https://picsum.photos/200/150?random=5" alt="مغامرات البطل">
-                <div class="game-title">مغامرات البطل</div>
-            </a>
-            <a href="play.html?game=action3" class="game-card">
-                <img src="https://picsum.photos/200/150?random=6" alt="حرب الزومبي">
-                <div class="game-title">حرب الزومبي</div>
-            </a>
-        </div>
+        <!-- قسم ألعاب السيارات والسرعة -->
+        <section class="category-section racing-section">
+            <h2>🏎️ ألعاب السيارات والسرعة</h2>
+            <div class="games-grid">
+                <a href="play.html?game=racing1" class="game-card">
+                    <img src="https://via.placeholder.com/300x180" alt="لعبة سباق 1">
+                    <h3>سباق المحترفين</h3>
+                </a>
+            </div>
+        </section>
 
-        <h2 style="margin-top: 25px;">⚽ ألعاب رياضة وكرة قدم</h2>
-        <div class="games-grid">
-            <a href="play.html?game=football1" class="game-card">
-                <img src="https://picsum.photos/200/150?random=7" alt="دوري الركلات">
-                <div class="game-title">دوري ركلات الترجيح</div>
-            </a>
-            <a href="play.html?game=football2" class="game-card">
-                <img src="https://picsum.photos/200/150?random=8" alt="كرة السلة">
-                <div class="game-title">تحدي كرة السلة</div>
-            </a>
-        </div>
     </main>
 
 </body>
 </html>
-
