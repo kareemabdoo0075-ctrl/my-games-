@@ -3,77 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تشغيل اللعبة - ألعابي</title>
+    <title>تشغيل اللعبة - Games Zone</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: system-ui, sans-serif; }
-        body { background-color: #121318; color: white; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
-        header { width: 100%; background: #1c1d24; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #2d2f3b; }
-        .back-btn { color: #ff4757; text-decoration: none; font-weight: bold; font-size: 1.1rem; }
-        .game-wrapper { width: 100%; max-width: 900px; padding: 15px; display: flex; flex-direction: column; align-items: center; }
-        
-        .iframe-container {
-            position: relative;
-            width: 100%;
-            padding-bottom: 60%;
-            height: 0;
-            background: #000;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: #0f0f1a; 
+            color: #fff; 
+            font-family: 'Segoe UI', sans-serif; 
+            display: flex; 
+            flex-direction: column; 
+            height: 100vh; 
+            overflow: hidden; 
         }
-        .iframe-container iframe {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
+        header { 
+            padding: 12px 20px; 
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(10px);
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .controls { width: 100%; margin-top: 15px; display: flex; justify-content: space-between; align-items: center; }
-        .btn-fullscreen { background: #ff4757; color: white; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .back-btn { 
+            color: #00f2fe; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border: 1px solid #00f2fe; 
+            padding: 6px 14px; 
+            border-radius: 8px; 
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            background: #00f2fe;
+            color: #000;
+        }
+        iframe { 
+            width: 100%; 
+            height: 100%; 
+            border: none; 
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="index.html" class="back-btn">➔ العودة للرئيسية</a>
-        <h3 id="gameTitle">🎮 جاري تحميل اللعبة...</h3>
+        <a href="index.html" class="back-btn">⬅ العودة للرئيسية</a>
+        <h3 id="game-title">جاري تحميل اللعبة...</h3>
     </header>
 
-    <div class="game-wrapper">
-        <div class="iframe-container" id="gameBox">
-            <iframe id="gameFrame" src="" allowfullscreen></iframe>
-        </div>
-        
-        <div class="controls">
-            <h2 id="gameNameBelow">اللعبة</h2>
-            <button class="btn-fullscreen" onclick="openFullscreen()">🖥️ شاشة كاملة</button>
-        </div>
-    </div>
+    <iframe id="game-iframe" src="" allowfullscreen></iframe>
 
     <script>
-        const gamesData = {
-            "car1": { name: "سباق السيارات الخارقة", url: "https://html5.gamedistribution.com/rvvAS48q61e149309831411586a11756/" },
-            "car2": { name: "تحدي التفحيط", url: "https://html5.gamedistribution.com/f04c6328325a4d04a6012e684074b34d/" },
-            "car3": { name: "الشاحنات العملاقة", url: "https://html5.gamedistribution.com/56a2be2d5a39498a9d18ce273ba5bbbe/" },
-            "action1": { name: "قتال الشوارع", url: "https://html5.gamedistribution.com/d33de002a28148b39414bfcbef31df2d/" },
-            "action2": { name: "مغامرات البطل", url: "https://html5.gamedistribution.com/bf96e21013f94bdca11e96a40c6c10eb/" },
-            "action3": { name: "حرب الزومبي", url: "https://html5.gamedistribution.com/609d94fa25154ee4a034ee0b93bc71d3/" },
-            "football1": { name: "دوري ركلات الترجيح", url: "https://html5.gamedistribution.com/c15b138531eb43efb672778ca0199120/" },
-            "football2": { name: "تحدي كرة السلة", url: "https://html5.gamedistribution.com/3910906e579e43fa9d83dfebad656f5e/" }
-        };
-
         const urlParams = new URLSearchParams(window.location.search);
-        const gameID = urlParams.get('game') || 'car1';
+        const gameUrl = urlParams.get('url');
+        const gameTitle = urlParams.get('title');
 
-        if (gamesData[gameID]) {
-            document.getElementById('gameFrame').src = gamesData[gameID].url;
-            document.getElementById('gameTitle').innerText = "🎮 " + gamesData[gameID].name;
-            document.getElementById('gameNameBelow').innerText = gamesData[gameID].name;
+        if (gameUrl) {
+            document.getElementById('game-iframe').src = gameUrl;
         }
-
-        function openFullscreen() {
-            let elem = document.getElementById("gameBox");
-            if (elem.requestFullscreen) { elem.requestFullscreen(); }
-            else if (elem.webkitRequestFullscreen) { elem.webkitRequestFullscreen(); }
-            else if (elem.msRequestFullscreen) { elem.msRequestFullscreen(); }
+        if (gameTitle) {
+            document.getElementById('game-title').innerText = gameTitle;
         }
     </script>
 </body>
 </html>
-
